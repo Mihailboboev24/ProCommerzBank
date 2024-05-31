@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Название компании</title>
+    <title>Курс валют - ПроКоммерцБанк</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="shortcut icon" href="ico/faviconV2.png" type="image/x-icon">
-    <link rel="icon" href="ico/faviconV2.png">
-    <script src="script.js"></script>
 </head>
-<body onload="startAutoScroll()">
+<body>
     <header>
-        <h1>Название компании</h1>
-        <div class="menu-icon" onclick="toggleMenu()">
-            &#9776; <!-- Символ "бутерброд" -->
-        </div>
+        <h1 class="text">ПроКоммерцБанк</h1>
+        <div>
+            <img style="width: 16%; margin: 0 0 0 65%" src="img/imglog.jpg" alt="Офис ПроКоммерцБанка" class="logo">
+            </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <div class="menu-panel">
             <ul>
                 <li><a href="index.html">О компании</a></li>
@@ -27,14 +27,23 @@
     </header>
 
     <main>
-        
+        <h2>Курс валют</h2>
+        <div class="currency-converter">
+            <label for="amount">Сумма:</label>
+            <input type="number" id="amount" placeholder="Введите сумму">
+            <select id="currency">
+                <option value="RUB">Рубль (RUB)</option>
+                <option value="AED">Дирхам ОАЭ (AED)</option>
+            </select>
+            <button onclick="convertCurrency()">Конвертировать</button>
+            <div id="result"></div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; Год основания Компании | Все права защищены</p>
+        <p>2006 - 2013 &copy; Все права защищены</p>
     </footer>
 
-    <script src="script.js">
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

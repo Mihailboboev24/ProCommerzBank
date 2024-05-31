@@ -4,12 +4,20 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 /* Стили для основного контента */
 main {
     flex: 1;
     padding: 20px;
+    padding-top: 75px; 
+    padding-bottom: 60px;
+    max-width: 1200px; 
+    margin: 0 auto;
 }
 
 /* Стили для полоски вверху страницы */
@@ -17,18 +25,72 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #333;
+    background-color: hsl(36, 100%, 50%);
     color: #fff;
-    padding: 10px 0;
-    z-index: 1000; /* Устанавливаем z-index, чтобы хедер был выше других элементов */
+    height: 75px;
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+header .text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стили для меню */
+.menu-icon {
+    position: fixed;
+    font-size: 40px;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.menu-panel {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-panel ul li {
+    margin-bottom: 10px;
+}
+
+.menu-panel ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu-panel ul li a:hover {
+    color: #007bff;
+}
 
 /* Стили для подвала */
 footer {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
+    background-color: hsl(36, 100%, 50%);
+    color: white;
+    text-align: center;
+    padding: 6px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Стили для кнопок вперед и назад */
@@ -41,6 +103,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
+    border-radius: 50%;
 }
 
 .prev {
@@ -79,87 +142,97 @@ footer {
 
 /* Стили для прямоугольника с текстом слайдов */
 .slide-container {
-    background-color: #f9f9f9; /* Цвет фона */
-    border-radius: 20px; /* Скругление углов */
-    padding: 20px; /* Отступы внутри прямоугольника */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
-    margin: 50px auto; /* Центрирование по горизонтали */
-    width: 80%; /* Ширина прямоугольника */
-    min-height: 200px; /* Минимальная высота контейнера */
-    display: flex; /* Расположение элементов внутри по вертикали */
-    flex-direction: column; /* Расположение элементов внутри по вертикали */
+    background-color: #f9f9f9; 
+    border-radius: 20px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 50px auto; 
+    width: 90%; 
+    min-height: 200px; 
+    display: flex; 
+    flex-direction: column; 
 }
 
 /* Стили для текста в слайдах */
 .slide {
-    margin-bottom: 20px; /* Отступ между слайдами */
-    flex-grow: 1; /* Растягиваем слайды на всю доступную высоту */
-    display: flex; /* Расположение элементов внутри по вертикали */
-    flex-direction: column; /* Расположение элементов внутри по вертикали */
-    justify-content: flex-start; /* Размещаем содержимое вверху слайда */
+    margin-bottom: 20px; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
 }
-
 
 /* Стили для заголовков в слайдах */
 .slide h2 {
-    color: #333; /* Цвет текста заголовка */
+    color: #333; 
 }
 
 /* Стили для основного текста в слайдах */
 .slide p {
-    color: #666; /* Цвет основного текста */
-    font-size: 16px; /* Размер шрифта */
-    line-height: 1.6; /* Межстрочный интервал */
+    color: #666; 
+    font-size: 16px; 
+    line-height: 1.6; 
 }
 
-/* Стили для жирного текста в слайдах */
+
 .slide strong {
-    font-weight: bold; /* Жирный шрифт */
+    font-weight: bold; 
 }
 
-/* Стили для ссылок в слайдах */
+
 .slide a {
-    color: #007bff; /* Цвет ссылок */
-    text-decoration: none; /* Убираем подчеркивание */
+    color: #007bff; 
+    text-decoration: none; 
 }
 
 .slide a:hover {
-    text-decoration: underline; /* Подчеркиваем при наведении */
+    text-decoration: underline; 
 }
 
-.menu-icon {
-    position: fixed;
-    font-size: 40px;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.menu-panel {
-    display: none;
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    background-color: #f9f9f9;
+.news-card {
+    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33.333% - 40px);
+    box-sizing: border-box;
 }
 
-.menu-panel ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu-panel ul li {
-    margin-bottom: 10px;
-}
-
-.menu-panel ul li a {
-    text-decoration: none;
+.news-card h3 {
     color: #333;
 }
 
-.menu-panel ul li a:hover {
-    color: #007bff;
+.news-card p {
+    color: #666;
+}
+
+.full-news {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.full-news button {
+    background-color: #008fee;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.full-news button:hover {
+    background-color: #006bbf;
 }

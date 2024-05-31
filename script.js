@@ -3,51 +3,70 @@ function toggleMenu() {
     menuPanel.style.display = menuPanel.style.display === 'block' ? 'none' : 'block';
 }
 
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide'); // Получаем все слайды
-let intervalId; // Идентификатор интервала для автоматической прокрутки
+let slideIndex = 1;
+showSlides(slideIndex);
 
-// Функция для отображения текущего слайда
-function showSlide(n) {
-    // Скрываем все слайды
-    slides.forEach(slide => slide.style.display = 'none');
-    // Проверяем, что индекс слайда находится в пределах массива
-    if (n >= slides.length) {
-        slideIndex = 0;
-    } else if (n < 0) {
-        slideIndex = slides.length - 1;
-    } else {
-        slideIndex = n;
-    }
-    // Показываем текущий слайд
-    slides[slideIndex].style.display = 'block';
-}
-
-// Функция для перехода к следующему слайду
 function nextSlide() {
-    showSlide(slideIndex + 1);
+    showSlides(slideIndex += 1);
 }
 
-// Функция для перехода к предыдущему слайду
 function prevSlide() {
-    showSlide(slideIndex - 1);
+    showSlides(slideIndex -= 1);
 }
 
-// Функция для запуска автоматической прокрутки слайдов
-function startAutoScroll() {
-    intervalId = setInterval(nextSlide, 3000); // Прокручиваем каждые 3 секунды (3000 мс)
+function currentSlide(n) {
+    showSlides(slideIndex = n);
 }
 
-// Функция для остановки автоматической прокрутки слайдов
-function stopAutoScroll() {
-    clearInterval(intervalId);
+function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
 }
 
-// Показываем первый слайд при загрузке страницы
-showSlide(slideIndex);
 
-// Запускаем автоматическую прокрутку слайдов при загрузке страницы
-startAutoScroll();
+function convertCurrency() {
+    const amount = document.getElementById('amount').value;
+    const selectedCurrency = document.getElementById('currency').value;
+
+    if (!amount) {
+        alert('Пожалуйста, введите сумму');
+        return;
+    }
+
+    $.get('https://www.cbr-xml-daily.ru/daily_json.js', function(data) {
+        const rates = JSON.parse(data);
+        const aedRate = rates.Valute.AED.Value;
+
+        let result;
+        if (selectedCurrency === 'RUB') {
+            result = amount / aedRate;
+            document.getElementById('result').innerHTML = `
+                <p>${amount} RUB = ${result.toFixed(2)} Дирхам ОАЭ (AED)</p>`;
+        } else if (selectedCurrency === 'AED') {
+            result = amount * aedRate;
+            document.getElementById('result').innerHTML = `
+                <p>${amount} AED = ${result.toFixed(2)} Российский рубль (RUB)</p>`;
+        }
+    });
+}
 
 
+function showFullNews(id) {
+    document.getElementById(id).style.display = 'block';
+}
+
+function hideFullNews(id) {
+    document.getElementById(id).style.display = 'none';
+}
 
