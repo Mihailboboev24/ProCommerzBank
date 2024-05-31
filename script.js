@@ -1,3 +1,8 @@
+function toggleMenu() {
+    const menuPanel = document.querySelector('.menu-panel');
+    menuPanel.style.display = menuPanel.style.display === 'block' ? 'none' : 'block';
+}
+
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide'); // Получаем все слайды
 let intervalId; // Идентификатор интервала для автоматической прокрутки
