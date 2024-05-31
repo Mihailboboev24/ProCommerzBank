@@ -1,0 +1,165 @@
+/* Стили для контейнера страницы */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Стили для основного контента */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Стили для полоски вверху страницы */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    z-index: 1000; /* Устанавливаем z-index, чтобы хедер был выше других элементов */
+}
+
+
+/* Стили для подвала */
+footer {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Стили для кнопок вперед и назад */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Стили для точек */
+.dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Стили для карусели */
+.carousel {
+    position: relative;
+    margin-top: 50px;
+}
+
+/* Стили для прямоугольника с текстом слайдов */
+.slide-container {
+    background-color: #f9f9f9; /* Цвет фона */
+    border-radius: 20px; /* Скругление углов */
+    padding: 20px; /* Отступы внутри прямоугольника */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+    margin: 50px auto; /* Центрирование по горизонтали */
+    width: 80%; /* Ширина прямоугольника */
+    min-height: 200px; /* Минимальная высота контейнера */
+    display: flex; /* Расположение элементов внутри по вертикали */
+    flex-direction: column; /* Расположение элементов внутри по вертикали */
+}
+
+/* Стили для текста в слайдах */
+.slide {
+    margin-bottom: 20px; /* Отступ между слайдами */
+    flex-grow: 1; /* Растягиваем слайды на всю доступную высоту */
+    display: flex; /* Расположение элементов внутри по вертикали */
+    flex-direction: column; /* Расположение элементов внутри по вертикали */
+    justify-content: flex-start; /* Размещаем содержимое вверху слайда */
+}
+
+
+/* Стили для заголовков в слайдах */
+.slide h2 {
+    color: #333; /* Цвет текста заголовка */
+}
+
+/* Стили для основного текста в слайдах */
+.slide p {
+    color: #666; /* Цвет основного текста */
+    font-size: 16px; /* Размер шрифта */
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+/* Стили для жирного текста в слайдах */
+.slide strong {
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для ссылок в слайдах */
+.slide a {
+    color: #007bff; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.slide a:hover {
+    text-decoration: underline; /* Подчеркиваем при наведении */
+}
+
+.menu-icon {
+    position: fixed;
+    font-size: 40px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.menu-panel {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.menu-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-panel ul li {
+    margin-bottom: 10px;
+}
+
+.menu-panel ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu-panel ul li a:hover {
+    color: #007bff;
+}

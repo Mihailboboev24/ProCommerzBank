@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название компании</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="ico/faviconV2.png" type="image/x-icon">
+    <link rel="icon" href="ico/faviconV2.png">
+    <script src="script.js"></script>
+</head>
+<body onload="startAutoScroll()">
+    <header>
+        <h1>Название компании</h1>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Символ "бутерброд" -->
+        </div>
+        <div class="menu-panel">
+            <ul>
+                <li><a href="index.html">О компании</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="currency.html">Курс валют</a></li>
+                <li><a href="contact.html">Контактные данные</a></li>
+                <li><a href="video.html">Видео</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="carousel">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <div class="slide-container">
+                <div class="slide" style="display: none;">
+                    <h2>Направления деятельности</h2>
+                    <p>Здесь можете быть описаны основные направления деятельности компании. Например:</p>
+                    <ul>
+                        <li>Производство товаров</li>
+                        <li>Услуги для бизнеса</li>
+                        <li>Инновационные разработки</li>
+                    </ul>
+                </div>
+            
+                <div class="slide" style="display: none;">
+                    <h2>Год создания</h2>
+                    <p>Компания была основана в <strong>1995 году</strong>.</p>
+                </div>
+            
+                <div class="slide" style="display: none;">
+                    <h2>Основатели</h2>
+                    <p>Основателями компании являются:</p>
+                    <ul>
+                        <li><strong>Иван Иванов</strong></li>
+                        <li><strong>Петр Петров</strong></li>
+                    </ul>
+                </div>
+            
+                <div class="slide" style="display: none;">
+                    <h2>Краткая история</h2>
+                    <p>Компания начала свою деятельность в небольшом гараже, и с тех пор выросла в крупную международную корпорацию. За время своего существования она достигла множества выдающихся достижений и преуспела в различных областях.</p>
+                </div>
+            
+                
+                <!-- Добавьте столько слайдов, сколько необходимо для размещения всей информации -->
+                
+                <!-- Добавьте сколько угодно слайдов -->
+            </div>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <!-- Добавьте столько точек, сколько у вас слайдов -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Год основания Компании | Все права защищены</p>
+    </footer>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>
